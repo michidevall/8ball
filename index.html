@@ -1,0 +1,138 @@
+<html>
+ <head>
+  <title>Magic 8 Ball</title>
+
+  <script type="text/javascript">
+    // we define answers
+    const answers = ["It is certain", 
+                   "It is decidedly so", 
+                   "Without a doubt", 
+                   "Yes - definitely",
+                   "You may rely on it", 
+                   "As I see it, yes", 
+                   "Most likely", 
+                   "Outlook good", 
+                   "Yes", "Signs point to yes",
+                   "Don't count on it", 
+                   "My reply is no",
+                   "My sources say no", 
+                   "Outlook not so good",
+                   "Very doubtful", 
+                   "Reply hazy, try again", 
+                   "Ask again later", 
+                   "Better not tell you now",
+                   "Cannot predict now", 
+                   "Concentrate and ask again"];
+    
+    window.onload = function() {
+       const eight = document.getElementById("eight");
+       const answer = document.getElementById("answer");
+       const eightball = document.getElementById("eight-ball");
+       const question = document.getElementById("question");
+       
+       eightball.addEventListener("click", function() {
+         if (question.value.length < 1) {
+           alert('Enter a question!');
+         } else {
+           eight.innerText = "";
+           const num = Math.floor(Math.random() * Math.floor(answers.length));
+           answer.innerText = answers[num];
+         }
+       });
+    };
+  </script>
+  
+  <style type="text/css">
+   
+body {
+    background-image: linear-gradient( to top ,#333,white);
+}
+
+
+    h1 { font-weight: 100;
+         font-size: 2.5em;
+        }
+    
+    #content { 
+     width: 600px; 
+     margin: 0 auto; 
+     margin-top: 50px;       
+     text-align: center; 
+     font-family: 'Courier', monospace; 
+     font-weight: 100;
+   }
+    
+    div.eight-ball {
+      background-color: black;
+      border: 1px solid black;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+    
+    div.answer {
+      background-color: #333;
+      border: 1px solid #333;
+      border-radius: 50%;
+      width: 50%;
+      height: 50%;
+      margin: 25% auto;
+
+    }
+
+    <!-- .triangle {
+        width: 300px;
+        height: 300px;
+        background-image: linear-gradient(to bottom right, transparent 50%, red 0),
+        linear-gradient(to top right, red 50%, transparent 0);
+
+    } -->
+    
+    p#eight {
+      font-size: 5em;
+      margin: 20% auto;
+      color: white;
+    }
+    
+    p#answer {
+      padding: 8px;
+      color: 3333ff;
+      letter-spacing: 2px;
+      font-size:20px;
+     
+    }
+    
+    #question {
+      margin: 20px;
+      padding: 10px;
+      width: 400px;
+      font-size:22px;
+    }
+    
+    #info {
+      font-size: 22px;
+    }
+    
+  </style>
+  
+ </head>
+ <body>
+  <div id="content">
+    <h1>Magic 8 Ball</h1>
+    <p id="info">Ask your question...</p>
+    <input type="text" id="question" />
+    <div id="eight-ball" class="eight-ball">
+      <div class="answer">
+        <p id="eight">8</p>
+        <p id="answer"></p>
+        <!-- <div class="triangle"> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+ </body>
+</html>
